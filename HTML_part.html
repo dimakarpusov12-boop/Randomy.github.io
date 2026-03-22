@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор случайных результатов</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎲 Генератор случайных результатов 🎲</h1>
+        </header>
+
+        <div class="mode-switcher">
+            <button class="mode-btn active" data-mode="number">Числа</button>
+            <button class="mode-btn" data-mode="custom">Список с пресетами</button>
+            <button class="mode-btn" data-mode="lucky">Счастливый билет</button>
+        </div>
+
+        <div id="numberMode" class="mode-panel active">
+            <div class="input-group">
+                <label for="minNum">Минимум:</label>
+                <input type="number" id="minNum" placeholder="1">
+            </div>
+            <div class="input-group">
+                <label for="maxNum">Максимум:</label>
+                <input type="number" id="maxNum" placeholder="100">
+            </div>
+            <div class="buttons">
+                <button id="generateBtn">Сгенерировать</button>
+                <button class="reset-btn">Сбросить</button>
+            </div>
+        </div>
+
+        <div id="customMode" class="mode-panel">
+            <div class="input-group">
+                <label for="userList">Введите элементы через запятую:</label>
+                <textarea
+                    id="userList"
+            placeholder="Например: яблоко, банан, апельсин, груша, киви"
+            rows="4"
+        ></textarea>
+                <div class="list-hint">
+                    <small>Разделяйте элементы запятыми. Пробелы в начале и конце будут убраны.</small>
+                </div>
+            </div>
+
+            <div class="list-preview hidden">
+                <h4>Предварительный просмотр списка:</h4>
+                <div id="listPreview" class="items-list"></div>
+            </div>
+
+            <div class="presets">
+                <h3>Пресеты:</h3>
+                <div class="preset-buttons">
+                    <button type="button" class="preset-btn" data-preset="yesno">Да/Нет</button>
+                    <button type="button" class="preset-btn" data-preset="numbers">От 1 до 10</button>
+            <button type="button" class="preset-btn" data-preset="alphabet">Алфавит</button>
+            <button type="button" class="preset-btn" data-preset="colors">Цвета</button>
+            <button type="button" class="preset-btn" data-preset="zodiac">Знаки зодиака</button>
+                </div>
+                <button type="button" id="clearListBtn" class="reset-btn">Очистить список</button>
+            </div>
+
+            <div class="buttons">
+                <button id="listBtn">Выбрать случайный элемент</button>
+            </div>
+        </div>
+
+        <div id="luckyMode" class="mode-panel">
+            <div class="lucky-ticket">
+                <div class="ticket-number" id="ticketNumber">000000</div>
+                <div id="ticketStatus" class="normal">Обычный билет</div>
+            </div>
+            <div class="buttons">
+                <button id="generateLucky">Новый счастливый билет</button>
+                <button class="reset-btn">Сбросить</button>
+            </div>
+        </div>
+
+        <div class="result-container">
+            <div id="result" class="hidden"></div>
+            <div id="error" class="error hidden"></div>
+        </div>
+    </div>
+
+    <footer>
+        Создан для общего использования
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
